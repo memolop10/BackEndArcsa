@@ -4,7 +4,7 @@ const router = express.Router()
 
 const persona = require('../usecases/personas')
 
-router.get('/', async(req,res) =>{
+router.get('/allPersonas', async(req,res) =>{
     const personas = await persona.get()
 
     res.json({
@@ -16,7 +16,7 @@ router.get('/', async(req,res) =>{
     })
 })
 
-router.post('/', async(req,res) =>{
+router.post('/newPersona', async(req,res) =>{
     try {
         const personaData = req.body
         const newPersona = await persona.create(personaData)
@@ -63,11 +63,11 @@ router.delete('/:id', async(req,res) =>{
     }
 })
 //actualizar persona
-router.put('/', async(req,res) => {
+router.put('/update', async(req,res) => {
 
     try{
     const putPersona = req.body;
-    const personaUpdate = await persona.updatepersona(putPersona)
+    const personaUpdate = await persona.updatePersona(putPersona)
 
     res.json({
         success:true,

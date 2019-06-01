@@ -27,9 +27,17 @@ async function get(){
         return Personas.findByAndDelete(id).exec();
     }
 
-    const updatePersona=(PersonaData) => {
+    const updatePersona= async (PersonaData) => {
 
-        return PersonaData.findByIdAndUpdate(PersonaData._id,dataPersona).exec();
+        console.log("MIRAME : ",PersonaData);
+        //return PersonaData.findByIdAndUpdate(PersonaData._id,dataPersona).exec();
+        
+        const personaUpdated = await Personas.findOneAndUpdate(PersonaData);
+        const datos = {
+            datosViejos :PersonaData,
+            datosNuevos:personaUpdated
+        }
+        return datos;
     }
 
 
