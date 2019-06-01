@@ -7,13 +7,13 @@ const schema = new Schema({
         required:true,
         type:String,
         trim:true,
-        maxlength:20,
-        minlength:1,
+        maxlength:50,
+        minlength:5,
     },
 
     age:{
         required:true,
-        type:String,
+        type:Number,
         trim:true,
         maxlength:2,
     },
